@@ -1,14 +1,14 @@
 export default [
   // user
   {
-    path: '/user',
+    path: '/pro/user',
     component: '../layouts/UserLayout',
     routes: [
-      { path: '/user', redirect: '/user/login' },
-      { path: '/user/login', name: 'login', component: './User/Login' },
-      { path: '/user/register', name: 'register', component: './User/Register' },
+      { path: '/pro/user', redirect: '/pro/user/login' },
+      { path: '/pro/user/login', name: 'login', component: './User/Login' },
+      { path: '/pro/user/register', name: 'register', component: './User/Register' },
       {
-        path: '/user/register-result',
+        path: '/pro/user/register-result',
         name: 'register.result',
         component: './User/RegisterResult',
       },
@@ -19,29 +19,29 @@ export default [
   },
   // app
   {
-    path: '/',
+    path: '/pro/',
     component: '../layouts/BasicLayout',
     Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/dashboard/analysis', authority: ['admin', 'user'] },
+      { path: '/pro/', redirect: '/pro/dashboard/analysis', authority: ['admin', 'user'] },
       {
-        path: '/dashboard',
+        path: '/pro/dashboard',
         name: 'dashboard',
         icon: 'dashboard',
         routes: [
           {
-            path: '/dashboard/analysis',
+            path: '/pro/dashboard/analysis',
             name: 'analysis',
             component: './Dashboard/Analysis',
           },
           {
-            path: '/dashboard/monitor',
+            path: '/pro/dashboard/monitor',
             name: 'monitor',
             component: './Dashboard/Monitor',
           },
           {
-            path: '/dashboard/workplace',
+            path: '/pro/dashboard/workplace',
             name: 'workplace',
             component: './Dashboard/Workplace',
           },
@@ -49,44 +49,44 @@ export default [
       },
       // forms
       {
-        path: '/form',
+        path: '/pro/form',
         icon: 'form',
         name: 'form',
         routes: [
           {
-            path: '/form/basic-form',
+            path: '/pro/form/basic-form',
             name: 'basicform',
             component: './Forms/BasicForm',
           },
           {
-            path: '/form/step-form',
+            path: '/pro/form/step-form',
             name: 'stepform',
             component: './Forms/StepForm',
             hideChildrenInMenu: true,
             routes: [
               {
-                path: '/form/step-form',
-                redirect: '/form/step-form/info',
+                path: '/pro/form/step-form',
+                redirect: '/pro/form/step-form/info',
               },
               {
-                path: '/form/step-form/info',
+                path: '/pro/form/step-form/info',
                 name: 'info',
                 component: './Forms/StepForm/Step1',
               },
               {
-                path: '/form/step-form/confirm',
+                path: '/pro/form/step-form/confirm',
                 name: 'confirm',
                 component: './Forms/StepForm/Step2',
               },
               {
-                path: '/form/step-form/result',
+                path: '/pro/form/step-form/result',
                 name: 'result',
                 component: './Forms/StepForm/Step3',
               },
             ],
           },
           {
-            path: '/form/advanced-form',
+            path: '/pro/form/advanced-form',
             name: 'advancedform',
             authority: ['admin'],
             component: './Forms/AdvancedForm',
@@ -95,46 +95,46 @@ export default [
       },
       // list
       {
-        path: '/list',
+        path: '/pro/list',
         icon: 'table',
         name: 'list',
         routes: [
           {
-            path: '/list/table-list',
+            path: '/pro/list/table-list',
             name: 'searchtable',
             component: './List/TableList',
           },
           {
-            path: '/list/basic-list',
+            path: '/pro/list/basic-list',
             name: 'basiclist',
             component: './List/BasicList',
           },
           {
-            path: '/list/card-list',
+            path: '/pro/list/card-list',
             name: 'cardlist',
             component: './List/CardList',
           },
           {
-            path: '/list/search',
+            path: '/pro/list/search',
             name: 'searchlist',
             component: './List/List',
             routes: [
               {
-                path: '/list/search',
-                redirect: '/list/search/articles',
+                path: '/pro/list/search',
+                redirect: '/pro/list/search/articles',
               },
               {
-                path: '/list/search/articles',
+                path: '/pro/list/search/articles',
                 name: 'articles',
                 component: './List/Articles',
               },
               {
-                path: '/list/search/projects',
+                path: '/pro/list/search/projects',
                 name: 'projects',
                 component: './List/Projects',
               },
               {
-                path: '/list/search/applications',
+                path: '/pro/list/search/applications',
                 name: 'applications',
                 component: './List/Applications',
               },
@@ -143,23 +143,23 @@ export default [
         ],
       },
       {
-        path: '/profile',
+        path: '/pro/profile',
         name: 'profile',
         icon: 'profile',
         routes: [
           // profile
           {
-            path: '/profile/basic',
+            path: '/pro/profile/basic',
             name: 'basic',
             component: './Profile/BasicProfile',
           },
           {
-            path: '/profile/basic/:id',
+            path: '/pro/profile/basic/:id',
             hideInMenu: true,
             component: './Profile/BasicProfile',
           },
           {
-            path: '/profile/advanced',
+            path: '/pro/profile/advanced',
             name: 'advanced',
             authority: ['admin'],
             component: './Profile/AdvancedProfile',
@@ -169,40 +169,40 @@ export default [
       {
         name: 'result',
         icon: 'check-circle-o',
-        path: '/result',
+        path: '/pro/result',
         routes: [
           // result
           {
-            path: '/result/success',
+            path: '/pro/result/success',
             name: 'success',
             component: './Result/Success',
           },
-          { path: '/result/fail', name: 'fail', component: './Result/Error' },
+          { path: '/pro/result/fail', name: 'fail', component: './Result/Error' },
         ],
       },
       {
         name: 'exception',
         icon: 'warning',
-        path: '/exception',
+        path: '/pro/exception',
         routes: [
           // exception
           {
-            path: '/exception/403',
+            path: '/pro/exception/403',
             name: 'not-permission',
             component: './Exception/403',
           },
           {
-            path: '/exception/404',
+            path: '/pro/exception/404',
             name: 'not-find',
             component: './Exception/404',
           },
           {
-            path: '/exception/500',
+            path: '/pro/exception/500',
             name: 'server-error',
             component: './Exception/500',
           },
           {
-            path: '/exception/trigger',
+            path: '/pro/exception/trigger',
             name: 'trigger',
             hideInMenu: true,
             component: './Exception/TriggerException',
@@ -212,54 +212,54 @@ export default [
       {
         name: 'account',
         icon: 'user',
-        path: '/account',
+        path: '/pro/account',
         routes: [
           {
-            path: '/account/center',
+            path: '/pro/account/center',
             name: 'center',
             component: './Account/Center/Center',
             routes: [
               {
-                path: '/account/center',
-                redirect: '/account/center/articles',
+                path: '/pro/account/center',
+                redirect: '/pro/account/center/articles',
               },
               {
-                path: '/account/center/articles',
+                path: '/pro/account/center/articles',
                 component: './Account/Center/Articles',
               },
               {
-                path: '/account/center/applications',
+                path: '/pro/account/center/applications',
                 component: './Account/Center/Applications',
               },
               {
-                path: '/account/center/projects',
+                path: '/pro/account/center/projects',
                 component: './Account/Center/Projects',
               },
             ],
           },
           {
-            path: '/account/settings',
+            path: '/pro/account/settings',
             name: 'settings',
             component: './Account/Settings/Info',
             routes: [
               {
-                path: '/account/settings',
-                redirect: '/account/settings/base',
+                path: '/pro/account/settings',
+                redirect: '/pro/account/settings/base',
               },
               {
-                path: '/account/settings/base',
+                path: '/pro/account/settings/base',
                 component: './Account/Settings/BaseView',
               },
               {
-                path: '/account/settings/security',
+                path: '/pro/account/settings/security',
                 component: './Account/Settings/SecurityView',
               },
               {
-                path: '/account/settings/binding',
+                path: '/pro/account/settings/binding',
                 component: './Account/Settings/BindingView',
               },
               {
-                path: '/account/settings/notification',
+                path: '/pro/account/settings/notification',
                 component: './Account/Settings/NotificationView',
               },
             ],
@@ -270,20 +270,20 @@ export default [
       {
         name: 'editor',
         icon: 'highlight',
-        path: '/editor',
+        path: '/pro/editor',
         routes: [
           {
-            path: '/editor/flow',
+            path: '/pro/editor/flow',
             name: 'flow',
             component: './Editor/GGEditor/Flow',
           },
           {
-            path: '/editor/mind',
+            path: '/pro/editor/mind',
             name: 'mind',
             component: './Editor/GGEditor/Mind',
           },
           {
-            path: '/editor/koni',
+            path: '/pro/editor/koni',
             name: 'koni',
             component: './Editor/GGEditor/Koni',
           },

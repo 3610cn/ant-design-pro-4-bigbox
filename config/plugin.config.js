@@ -2,6 +2,7 @@
 
 import MergeLessPlugin from 'antd-pro-merge-less';
 import AntDesignThemePlugin from 'antd-theme-webpack-plugin';
+import WebpackAssetsManifest from 'webpack-assets-manifest';
 import path from 'path';
 
 function getModulePackageName(module) {
@@ -24,6 +25,28 @@ function getModulePackageName(module) {
 }
 
 export default config => {
+  if (process.env.NODE_ENV === 'production') {
+    const appHostPath = path.join(__dirname, '../src/app.host.js');
+
+    config
+      .entry('tt')
+      .add(appHostPath)
+      .end();
+
+    config.output.publicPath('/pro/');
+
+    config.plugin('manifest').use(WebpackAssetsManifest, [
+      {
+        output: 'xxx.json',
+        entrypoints: true,
+        entrypointsKey: false,
+        publicPath: true,
+        transform(assets) {
+          return assets['tt'];
+        },
+      },
+    ]);
+  }
   // preview.pro.ant.design only do not use in your production ; preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
   if (
     process.env.ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site' ||

@@ -55,10 +55,10 @@ export default {
       reloadAuthorized();
       const { redirect } = getPageQuery();
       // redirect
-      if (window.location.pathname !== '/user/login' && !redirect) {
+      if (window.location.pathname !== '/pro/user/login' && !redirect) {
         yield put(
           routerRedux.replace({
-            pathname: '/user/login',
+            pathname: '/pro/user/login',
             search: stringify({
               redirect: window.location.href,
             }),

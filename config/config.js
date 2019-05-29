@@ -70,6 +70,7 @@ export default {
   targets: {
     ie: 11,
   },
+  history: 'hash',
   devtool: ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION ? 'source-map' : false,
   // 路由配置
   routes: pageRoutes,
@@ -115,6 +116,6 @@ export default {
   manifest: {
     basePath: '/',
   },
-
+  disableGlobalVariables: true,
   chainWebpack: webpackPlugin,
 };
